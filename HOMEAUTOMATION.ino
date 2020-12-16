@@ -3,13 +3,13 @@ WiFiClient client;
 WiFiServer server(80);
 
 /* WIFI settings */
-const char* ssid = "Atharva";   //WIFI SSID
-const char* password = "Atharva3102";    //WIFI PASSWORD
+const char* ssid = "******";   //WIFI SSID
+const char* password = "********";    //WIFI PASSWORD
 
 /* data received from application */
 String  data =""; 
 
-/* define L298N or L293D motor control pins */
+
 int Relay1 = 0;    //D3
 int Relay2 = 16;    //D0
 int Relay3 = 4;     //D2
@@ -42,7 +42,6 @@ void loop()
     if (!client) return; 
     data = checkClient ();
 Serial.print(data);
-/************************ Run function according to incoming data from application *************************/
 
     
     if (data == "Relay1ON")
@@ -101,7 +100,7 @@ void connectWiFi()
   Serial.println("NodeMCU Local IP is : ");
   Serial.print((WiFi.localIP()));
 }
-/********************************** RECEIVE DATA FROM the APP ******************************************/
+
 String checkClient (void)
 {
   while(!client.available()) delay(1); 
